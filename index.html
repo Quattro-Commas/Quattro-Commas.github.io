@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quattro Commas — Misfit Builders Club</title>
+<title>Quattro Commas — Independent AI Engineering Studio</title>
 <meta name="description" content="Quattro Commas: an independent AI engineering studio. Ideas, code, culture, freedom. Hack, build, jazz, repeat.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>♛</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -220,6 +220,90 @@ body {
 .card:nth-child(even) h3 { color: var(--amber); }
 .card p { font-size: 0.92rem; font-weight: 300; color: rgba(245,239,224,0.78); line-height: 1.6; }
 
+/* ---------- WORK ---------- */
+.work { padding: 4rem 1.5rem 5rem; max-width: 1100px; margin: 0 auto; }
+.work h2 {
+  font-family: 'Permanent Marker', cursive;
+  font-size: clamp(2rem, 5.5vw, 3.4rem);
+  text-align: center;
+  margin-bottom: 0.6rem;
+  color: var(--cream);
+}
+.work h2 em { color: var(--teal); font-style: normal; }
+.work .sub {
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: rgba(245,239,224,0.5);
+  margin-bottom: 3rem;
+}
+.projects { display: grid; gap: 1rem; }
+.project {
+  display: block;
+  text-decoration: none;
+  border: 1px solid rgba(245,239,224,0.12);
+  border-left: 3px solid var(--teal);
+  border-radius: 12px;
+  padding: 1.3rem 1.4rem;
+  background: linear-gradient(160deg, rgba(255,255,255,0.045), rgba(255,255,255,0.01));
+  transition: transform 0.35s cubic-bezier(.2,.8,.2,1), border-color 0.35s, box-shadow 0.35s;
+}
+.project:hover {
+  transform: translateX(4px);
+  border-color: rgba(62,230,176,0.5);
+  box-shadow: -6px 0 0 -1px rgba(62,230,176,0.28);
+}
+.project .name {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.3rem;
+  color: var(--cream);
+  display: block;
+  margin-bottom: 0.3rem;
+}
+.project .desc {
+  font-size: 0.92rem;
+  font-weight: 300;
+  color: rgba(245,239,224,0.78);
+  line-height: 1.6;
+}
+.project .repo {
+  display: inline-block;
+  margin-top: 0.6rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.76rem;
+  color: var(--teal);
+  opacity: 0.85;
+}
+.work-note {
+  margin-top: 2.5rem;
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  line-height: 1.7;
+  color: rgba(245,239,224,0.45);
+}
+.contact { margin-top: 3rem; text-align: center; }
+.contact a {
+  color: var(--amber);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,179,71,0.4);
+}
+.contact a:hover { border-bottom-color: var(--amber); }
+.contact .cv {
+  display: inline-block;
+  margin-top: 1rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+  color: var(--teal);
+  border: 1px solid rgba(62,230,176,0.35);
+  border-radius: 999px;
+  padding: 0.55rem 1.3rem;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+}
+.contact .cv:hover { background: var(--teal); color: var(--ink); }
+
 /* ---------- FOOTER ---------- */
 footer {
   border-top: 1px solid rgba(245,239,224,0.1);
@@ -279,8 +363,53 @@ footer .sig {
   </div>
 </section>
 
+<section class="work">
+  <h2>Selected <em>work</em></h2>
+  <p class="sub">EVERY FIGURE BELOW IS RE-DERIVABLE FROM THE REPO</p>
+
+  <div class="projects">
+    <a class="project" href="https://github.com/BoozeLee/elohim">
+      <span class="name">elohim</span>
+      <span class="desc">Checksum-pinned gate for numerical claims. Publishes a number only when it can re-derive it, and ships tampered copies of its own instruments so the gate has to be caught failing.</span>
+      <span class="repo">github.com/BoozeLee/elohim</span>
+    </a>
+    <a class="project" href="https://github.com/BoozeLee/harness">
+      <span class="name">harness</span>
+      <span class="desc">Contract-gated agent pipeline. Blocks protected-path writes and secret reads before an agent's edit lands, so a guard that does not hold fails the run instead of passing quietly.</span>
+      <span class="repo">github.com/BoozeLee/harness</span>
+    </a>
+    <a class="project" href="https://github.com/BoozeLee/terminal221b">
+      <span class="name">terminal221b</span>
+      <span class="desc">Bounded local-first coding CLI with a Rust TUI. Agent context is bound by path rather than by a token budget, and credentials are redacted out of stored transcripts before they reach disk.</span>
+      <span class="repo">github.com/BoozeLee/terminal221b</span>
+    </a>
+    <a class="project" href="https://github.com/Bakery-street-project/galacticfederation">
+      <span class="name">repotruth</span>
+      <span class="desc">CI that reads the repository, not just the diff. Verifies every webhook — signed push accepted, replay answered idempotently, unsigned push rejected — and reports its own input limits instead of silently truncating an audit above them.</span>
+      <span class="repo">github.com/Bakery-street-project/galacticfederation</span>
+    </a>
+    <a class="project" href="https://github.com/BoozeLee/mcp-regression-lab">
+      <span class="name">mcp-regression-lab</span>
+      <span class="desc">Diffs an MCP server's tool contract across releases, so a renamed or narrowed tool fails CI instead of failing in production.</span>
+      <span class="repo">github.com/BoozeLee/mcp-regression-lab</span>
+    </a>
+  </div>
+
+  <p class="work-note">
+    One builder. No production deployments, no customers, no funding.<br>
+    Two of the five repositories have failing checks right now — <code>terminal221b</code>
+    (<code>npm ci</code>) and <code>repotruth</code> (<code>CodeQL</code>). They are listed
+    because hiding that would be the opposite of the point.
+  </p>
+
+  <div class="contact">
+    <a href="mailto:bakerstreetbandit@zohomail.eu">bakerstreetbandit@zohomail.eu</a><br>
+    <a class="cv" href="/resume.pdf">Download the one-page CV</a>
+  </div>
+</section>
+
 <footer>
-  <span class="sig">Misfit Builders Club</span>
+  <span class="sig">Independent AI Engineering Studio</span>
   hack · build · jazz · repeat<br><br>
   <a href="https://github.com/Quattro-Commas">github.com/Quattro-Commas</a> ·
   built by <a href="https://github.com/BoozeLee">Kiliaan Vanvoorden</a> in Riemst, Belgium
