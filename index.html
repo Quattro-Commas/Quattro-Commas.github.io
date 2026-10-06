@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quattro Commas — Misfit Builders Club</title>
+<meta name="description" content="Quattro Commas: an independent AI engineering studio. Ideas, code, culture, freedom. Hack, build, jazz, repeat.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>♛</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=JetBrains+Mono:ital,wght@0,400;0,700;1,400&family=Sora:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal: #3ee6b0;
+  --amber: #ffb347;
+  --magenta: #ff5da2;
+  --cream: #f5efe0;
+  --ink: #0d0a14;
+  --ink-2: #161022;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--ink);
+  color: var(--cream);
+  font-family: 'Sora', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  isolation: isolate;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0; z-index: -2;
+  background: url('assets/crew.jpg') center 30% / cover no-repeat;
+  animation: heroDrift 30s ease-in-out infinite alternate;
+}
+.hero::after {
+  content: '';
+  position: absolute; inset: 0; z-index: -1;
+  background:
+    radial-gradient(ellipse at 50% 42%, rgba(13,10,20,0.78) 0%, rgba(13,10,20,0.45) 45%, rgba(13,10,20,0.92) 80%),
+    linear-gradient(180deg, rgba(13,10,20,0.55) 0%, rgba(13,10,20,0.35) 45%, var(--ink) 98%);
+}
+@keyframes heroDrift {
+  from { transform: scale(1.02) translateY(0); }
+  to   { transform: scale(1.08) translateY(-1.5%); }
+}
+.crown svg {
+  width: clamp(2rem, 4vw, 3rem); height: auto;
+  filter: drop-shadow(0 0 14px rgba(255,179,71,0.8));
+  animation: bob 4s ease-in-out infinite;
+}
+@keyframes bob { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-8px) } }
+.title {
+  font-family: 'Permanent Marker', cursive;
+  line-height: 0.95;
+  margin: 0.5rem 0 0;
+  animation: rise 1.2s cubic-bezier(.2,.8,.2,1) both;
+}
+.title .l1 {
+  display: block;
+  font-size: clamp(3rem, 11vw, 8.5rem);
+  color: var(--cream);
+  text-shadow: 0 4px 0 rgba(0,0,0,0.35), 0 0 40px rgba(245,239,224,0.25);
+  letter-spacing: 0.02em;
+}
+.title .l2 {
+  display: block;
+  font-size: clamp(3.4rem, 12.5vw, 9.5rem);
+  color: var(--teal);
+  text-shadow: 0 4px 0 rgba(0,0,0,0.4), 0 0 55px rgba(62,230,176,0.45);
+  transform: rotate(-1.5deg);
+}
+@keyframes rise { from { opacity: 0; transform: translateY(40px) } to { opacity: 1; transform: translateY(0) } }
+.commas {
+  font-family: 'Permanent Marker', cursive;
+  font-size: clamp(2.6rem, 7vw, 5.5rem);
+  color: var(--amber);
+  letter-spacing: 0.15em;
+  margin-top: 1.2rem;
+  user-select: none;
+  position: relative;
+  z-index: 1;
+}
+.commas span {
+  display: inline-block;
+  animation: commaGlow 3s ease-in-out infinite;
+  text-shadow: 0 0 22px rgba(255,179,71,0.9), 0 0 60px rgba(255,179,71,0.5);
+}
+.commas span:nth-child(2) { animation-delay: 0.4s }
+.commas span:nth-child(3) { animation-delay: 0.8s }
+.commas span:nth-child(4) { animation-delay: 1.2s }
+@keyframes commaGlow {
+  0%,100% { transform: translateY(0); opacity: 0.85; }
+  50%     { transform: translateY(-10px); opacity: 1; }
+}
+.tagline {
+  margin-top: 1.6rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(0.9rem, 2.2vw, 1.25rem);
+  color: var(--cream);
+  min-height: 1.6em;
+}
+.tagline .word { color: var(--teal); }
+.scroll-hint {
+  position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase;
+  color: rgba(245,239,224,0.55);
+  animation: bob 3s ease-in-out infinite;
+}
+
+/* ---------- TICKER ---------- */
+.ticker {
+  background: var(--teal);
+  color: var(--ink);
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 0.7rem 0;
+  transform: rotate(-1deg) scale(1.02);
+  border-top: 3px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
+}
+.ticker-track {
+  display: inline-block;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.3rem;
+  animation: marquee 22s linear infinite;
+}
+@keyframes marquee { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+
+/* ---------- TERMINAL ---------- */
+.term-wrap {
+  display: flex; justify-content: center;
+  padding: 6rem 1.5rem;
+  background:
+    radial-gradient(ellipse at 20% 20%, rgba(255,93,162,0.08), transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(62,230,176,0.07), transparent 50%);
+}
+.terminal {
+  width: min(680px, 100%);
+  background: rgba(10,8,16,0.92);
+  border: 1px solid rgba(62,230,176,0.35);
+  border-radius: 12px;
+  box-shadow: 0 0 60px rgba(62,230,176,0.12), 0 24px 60px rgba(0,0,0,0.6);
+  overflow: hidden;
+}
+.term-bar {
+  display: flex; gap: 0.5rem; align-items: center;
+  padding: 0.7rem 1rem;
+  background: rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(62,230,176,0.2);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: rgba(245,239,224,0.5);
+}
+.term-bar .dot { width: 11px; height: 11px; border-radius: 50%; }
+.term-bar .r { background: var(--magenta); } .term-bar .y { background: var(--amber); } .term-bar .g { background: var(--teal); }
+.term-body {
+  padding: 1.5rem 1.4rem 1.8rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(0.95rem, 2.4vw, 1.15rem);
+  line-height: 2.1;
+  min-height: 12em;
+}
+.term-body .prompt { color: var(--magenta); }
+.term-body .cmd { color: var(--cream); }
+.term-body .out { color: var(--teal); }
+.cursor {
+  display: inline-block; width: 0.6em; height: 1.15em;
+  background: var(--teal); vertical-align: text-bottom;
+  animation: blink 0.9s steps(1) infinite;
+}
+@keyframes blink { 50% { opacity: 0 } }
+
+/* ---------- CREED ---------- */
+.creed { padding: 4rem 1.5rem 6rem; max-width: 1100px; margin: 0 auto; }
+.creed h2 {
+  font-family: 'Permanent Marker', cursive;
+  font-size: clamp(2rem, 5.5vw, 3.4rem);
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--cream);
+}
+.creed h2 em { color: var(--amber); font-style: normal; }
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.2rem;
+}
+.card {
+  border: 1px solid rgba(245,239,224,0.12);
+  border-radius: 14px;
+  padding: 1.6rem 1.4rem;
+  background: linear-gradient(160deg, rgba(255,255,255,0.045), rgba(255,255,255,0.01));
+  transition: transform 0.35s cubic-bezier(.2,.8,.2,1), border-color 0.35s, box-shadow 0.35s;
+}
+.card:hover {
+  transform: translateY(-6px) rotate(-0.5deg);
+  border-color: var(--teal);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.5), 0 0 30px rgba(62,230,176,0.12);
+}
+.card .glyph { font-size: 1.9rem; margin-bottom: 0.7rem; }
+.card h3 {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.35rem; font-weight: 400;
+  color: var(--teal); margin-bottom: 0.5rem;
+}
+.card:nth-child(even) h3 { color: var(--amber); }
+.card p { font-size: 0.92rem; font-weight: 300; color: rgba(245,239,224,0.78); line-height: 1.6; }
+
+/* ---------- FOOTER ---------- */
+footer {
+  border-top: 1px solid rgba(245,239,224,0.1);
+  padding: 3rem 1.5rem;
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  color: rgba(245,239,224,0.55);
+}
+footer a { color: var(--teal); text-decoration: none; border-bottom: 1px dashed rgba(62,230,176,0.4); }
+footer a:hover { color: var(--amber); border-color: var(--amber); }
+footer .sig {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.5rem; color: var(--cream);
+  display: block; margin-bottom: 0.8rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="crown"><svg viewBox="0 0 64 48" fill="#ffb347" aria-hidden="true"><path d="M4 40 L10 14 L22 28 L32 8 L42 28 L54 14 L60 40 Z M6 44 h52 v4 H6 Z"/></svg></div>
+  <h1 class="title">
+    <span class="l1">QUATTRO</span>
+    <span class="l2">COMMAS</span>
+  </h1>
+  <div class="commas" aria-hidden="true"><span>,</span><span>,</span><span>,</span><span>,</span></div>
+  <p class="tagline"><span id="typed"></span><span class="cursor"></span></p>
+  <div class="scroll-hint">scroll</div>
+</header>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track" id="ticker"></div>
+</div>
+
+<section class="term-wrap">
+  <div class="terminal">
+    <div class="term-bar">
+      <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+      <span style="margin-left:0.6rem">quattro-commas — the four commas</span>
+    </div>
+    <div class="term-body" id="term"></div>
+  </div>
+</section>
+
+<section class="creed">
+  <h2>Good code. <em>Better people.</em></h2>
+  <div class="cards">
+    <div class="card"><div class="glyph">💡</div><h3>Ideas</h3><p>Original thinking first. Every project starts as a weird idea that survived contact with a prototype.</p></div>
+    <div class="card"><div class="glyph">⌨️</div><h3>Code</h3><p>Agent systems, evaluation gates, local inference, applied ML. Reproducible or it didn't happen.</p></div>
+    <div class="card"><div class="glyph">🎷</div><h3>Culture</h3><p>Jazz in the speakers, plants on the desk, a cat on the keyboard. Builder culture, not hustle culture.</p></div>
+    <div class="card"><div class="glyph">🕊️</div><h3>Freedom</h3><p>Open source and brighter futures. Local-first tools that answer to their user, not to a platform.</p></div>
+  </div>
+</section>
+
+<footer>
+  <span class="sig">Misfit Builders Club</span>
+  hack · build · jazz · repeat<br><br>
+  <a href="https://github.com/Quattro-Commas">github.com/Quattro-Commas</a> ·
+  built by <a href="https://github.com/BoozeLee">Kiliaan Vanvoorden</a> in Riemst, Belgium
+</footer>
+
+<script>
+// Rotating hero tagline
+const phrases = [
+  'ideas, code, culture, freedom',
+  'hack, build, jazz, repeat',
+  'good code, better people',
+  'open source & brighter futures'
+];
+const typedEl = document.getElementById('typed');
+let pi = 0, ci = 0, deleting = false;
+function typeLoop() {
+  const p = phrases[pi];
+  typedEl.textContent = p.slice(0, ci);
+  if (!deleting && ci < p.length) { ci++; setTimeout(typeLoop, 55); }
+  else if (!deleting) { deleting = true; setTimeout(typeLoop, 2200); }
+  else if (ci > 0) { ci--; setTimeout(typeLoop, 28); }
+  else { deleting = false; pi = (pi + 1) % phrases.length; setTimeout(typeLoop, 400); }
+}
+typeLoop();
+
+// Ticker content (doubled for seamless loop)
+const items = 'HACK ✦ BUILD ✦ JAZZ ✦ REPEAT ✦ IDEAS ✦ CODE ✦ CULTURE ✦ FREEDOM ✦ ';
+document.getElementById('ticker').textContent = items + items;
+
+// Terminal typing of the four commas
+const lines = [
+  { t: '> whoami', cls: 'cmd' },
+  { t: 'quattro_commas: misfit builders club', cls: 'out' },
+  { t: '> cat manifesto.txt', cls: 'cmd' },
+  { t: ', people', cls: 'out' },
+  { t: ', projects', cls: 'out' },
+  { t: ', possibilities', cls: 'out' },
+  { t: ', a kinder internet', cls: 'out' }
+];
+const term = document.getElementById('term');
+let li = 0;
+function nextLine() {
+  if (li >= lines.length) { term.insertAdjacentHTML('beforeend', '<div><span class="prompt">&gt;</span> <span class="cursor"></span></div>'); return; }
+  const l = lines[li++];
+  const div = document.createElement('div');
+  div.innerHTML = (l.cls === 'cmd' ? '<span class="prompt">&gt;</span> ' : '') + '<span class="' + l.cls + '"></span>';
+  if (l.cls === 'cmd') div.querySelector('.cmd').textContent = l.t.slice(2);
+  term.appendChild(div);
+  const span = div.querySelector('span:last-child');
+  const text = l.cls === 'cmd' ? l.t.slice(2) : l.t;
+  let i = 0;
+  (function tick() {
+    span.textContent = text.slice(0, ++i);
+    if (i < text.length) setTimeout(tick, 34);
+    else setTimeout(nextLine, l.cls === 'cmd' ? 250 : 420);
+  })();
+}
+const io = new IntersectionObserver((e) => { if (e[0].isIntersecting) { nextLine(); io.disconnect(); } });
+io.observe(term);
+</script>
+</body>
+</html>
