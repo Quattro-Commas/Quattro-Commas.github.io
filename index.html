@@ -396,16 +396,39 @@ footer .sig {
   </div>
 
   <p class="work-note">
-    One builder. No production deployments, no customers, no funding.<br>
-    Two of the five repositories have failing checks right now — <code>terminal221b</code>
-    (<code>npm ci</code>) and <code>repotruth</code> (<code>CodeQL</code>). They are listed
-    because hiding that would be the opposite of the point.
+    This studio is the index. The code is in the repositories above, built and maintained by the same
+    one person — nothing here is a mirror or a fork.<br>
+    One builder. No production deployments, no customers, no funding. Every project sits at
+    <strong>0 stars and 0 forks</strong>.<br>
+    Checked <strong>2026-10-07</strong>: <strong>four of the five</strong> public projects have a failing
+    check on <code>main</code> right now — <code>harness</code>, <code>terminal221b</code>,
+    <code>mcp-regression-lab</code> and <code>repotruth</code>. <code>elohim</code> is green on its latest
+    run. They are listed because hiding that would be the opposite of the point.
   </p>
 
   <div class="contact">
+    <strong>Open to AI engineering roles</strong> in evaluation and agent infrastructure — remote from
+    Belgium, employment or contract.<br>
     <a href="mailto:bakerstreetbandit@zohomail.eu">bakerstreetbandit@zohomail.eu</a><br>
     <a class="cv" href="/resume.pdf">Download the one-page CV</a>
   </div>
+</section>
+
+<section class="creed">
+  <h2>Private work, <em>shown on request</em></h2>
+  <p class="work-note" style="text-align:center">
+    Applied-ML and local-inference work runs in private repositories and will not be published — so no
+    client, dataset or repository name appears here, and no metrics are quoted, because none of them can
+    be re-derived from a public repo. This is the only evidence behind two of the four pillars above.
+  </p>
+  <div class="cards">
+    <div class="card"><div class="glyph">🖼️</div><h3>Image models</h3><p>A multi-task classifier that takes one photo and returns both a class and a storage-age estimate — served from ONNX behind FastAPI, with a browser demo in front of it.</p></div>
+    <div class="card"><div class="glyph">📈</div><h3>Yield prediction</h3><p>Lot-level yield prediction that routes output to specification tiers, instead of reporting one averaged number nobody can act on.</p></div>
+    <div class="card"><div class="glyph">🧊</div><h3>Local-first advisor</h3><p>A shelf-life-aware allocation advisor on FIFO/FEFO rules, paired with a local store assistant that answers without a round trip to a hosted model.</p></div>
+    <div class="card"><div class="glyph">🧰</div><h3>Agent tooling</h3><p>A Next.js chat copilot wired to internal systems over MCP — the same tool-contract discipline that <code>mcp-regression-lab</code> tests in CI.</p></div>
+  </div>
+  <p class="work-note" style="text-align:center">Also: a MAP-Elites quality-diversity search over idea spaces.
+  All of it is screen-shareable on request.</p>
 </section>
 
 <footer>
@@ -442,12 +465,12 @@ document.getElementById('ticker').textContent = items + items;
 // Terminal typing of the four commas
 const lines = [
   { t: '> whoami', cls: 'cmd' },
-  { t: 'quattro_commas: misfit builders club', cls: 'out' },
+  { t: 'quattro_commas: independent ai engineering studio', cls: 'out' },
   { t: '> cat manifesto.txt', cls: 'cmd' },
-  { t: ', people', cls: 'out' },
-  { t: ', projects', cls: 'out' },
-  { t: ', possibilities', cls: 'out' },
-  { t: ', a kinder internet', cls: 'out' }
+  { t: ', ideas', cls: 'out' },
+  { t: ', code', cls: 'out' },
+  { t: ', culture', cls: 'out' },
+  { t: ', freedom', cls: 'out' }
 ];
 const term = document.getElementById('term');
 let li = 0;
