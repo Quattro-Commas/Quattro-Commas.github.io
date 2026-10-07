@@ -7,7 +7,7 @@ the enforced floor). Sections that were not executed say so instead of guessing.
 - Research date: **2026-10-07**
 - Revised **2026-10-07**: `testgen-mathx` and `trap-discount` added to §5. The original `trap-discount`
   result was invalidated — its fixture, not the agent, was at fault. Three task families are now
-  measured; `trap-discount-v2` stands at **n=2**, with attempt 1 recorded as UNKNOWN.
+  measured, **9 of 9 attempts accepted**.
 - Agent: `mcode` **0.6.3** at `/root/.minimax-code/bin/mcode`
 - Model: `MiniMax-M3.1-Flash-Preview`, variant `thinking`
 - Credential: managed OAuth, **token plan** (no per-token USD figure available)
@@ -31,7 +31,7 @@ more to an evaluation pipeline than most published benchmark numbers.
 
 It solved every bug-fix attempt it was given, on every repeat — **but only after the harness that
 graded them was fixed.** The one task that first read 3/3 FAIL was failing on three separate bugs in
-its own fixture, and read 2/2 PASS once those were corrected (§5). The sample is small, the domain is
+its own fixture, and read 3/3 PASS once those were corrected (§5). The sample is small, the domain is
 narrow, and its `mcode init` path failed outright on this device. Treat it as **verified good at
 small, test-backed Python fixes under a bounded budget** and **unproven** everywhere else.
 
@@ -184,18 +184,25 @@ Fixture commit `78eb4ee`.
 
 | Attempt | Exit | Agent status | Independent verdict | Tokens | Wall |
 |---|---|---|---|---|---|
-| 1 | — | — | **UNKNOWN — not measured** | — | — |
+| 1 | 0 | succeeded | **PASS** | 33148 | 36 s |
 | 2 | 0 | succeeded | **PASS** | 32011 | 37 s |
 | 3 | 0 | succeeded | **PASS** | 31749 | 36 s |
 
-**2/2 accepted, n=2.** This is the headline correction: the same task that read 3/3 FAIL against the
-broken harness reads **2/2 PASS** against the corrected one. The earlier verdict measured the test.
+**3/3 accepted.** This is the headline correction: the same task that read 3/3 FAIL against the
+broken harness reads **3/3 PASS** against the corrected one. The earlier verdict measured the test.
 
-Attempt 1 is **UNKNOWN, not failed**. It was killed twice by `mobile-safe.py` reporting *available
-RAM below reserve* — the 512 MiB reserve, not a test result. **No threshold was lowered to complete
-it.** Attempts 2 and 3 cleared the same guard without incident, so the shortfall is environmental
-and nondeterministic rather than a property of the task. Recording it as a failure would repeat the
-exact error this section describes.
+Getting attempt 1 took **three tries at the harness, not the agent**, and the failures are worth
+recording because none of them were test results:
+
+1. `--diagnostics-dir must be empty` — `exit 2`, 4 s, zero bytes of output. The run directory
+   inherited by the attempt still held the previous run's `progress.jsonl`. The agent never started.
+   A documented 0.6.3 behaviour, and a runner bug: run directories are now cleared before reuse.
+2. Twice, `mobile-safe.py` stopped the run for *available RAM below reserve* — the 512 MiB reserve.
+   Attempts 2 and 3 cleared the same guard without incident, so the shortfall is environmental and
+   nondeterministic. **No threshold was lowered to get attempt 1 to run**; it was waited out.
+
+None of these was ever written to the ledger as a failure. An attempt that never executed is
+UNKNOWN, and UNKNOWN is the honest word.
 
 ### What the cost actually looks like
 
@@ -211,14 +218,15 @@ exact error this section describes.
 | Wave | Planned | Executed |
 |---|---|---|
 | A — local verification | 6 steps | **6** |
-| B1 pilot | 9 | **8 of 9 — one attempt UNKNOWN, not failed** |
+| B1 pilot | 9 | **9 of 9 — every attempt accepted** |
 | B2 local wave | 42 | **not run** |
 | B3 Flutter/TS/Lua/DB | 78 | **NOT RUN — blocked** |
 
 `flutter`, `dart`, `tsc`, `lua`, `docker`, `psql`, `supabase` are absent, and available RAM
-(519–690 MiB observed) sits below the 768 MiB threshold `mobile-safe.py` enforces. **That threshold
-was not lowered.** Executing those families here would have measured the environment, not the agent.
-The same guard ended `trap-discount-v2` attempt 1 for the same reason, and was likewise not lowered.
+(519–729 MiB observed) sits at or below the 768 MiB threshold `mobile-safe.py` enforces. **That
+threshold was not lowered.** Executing those families here would have measured the environment, not
+the agent. The same guard twice refused `trap-discount-v2` attempt 1 for breaching its 512 MiB
+reserve, and was likewise not lowered — the attempt was re-run once memory recovered.
 
 ### A gap in this harness: PASS verdicts are not independently re-inspectable
 
