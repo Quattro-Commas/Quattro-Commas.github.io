@@ -1,0 +1,48 @@
+Usage: mcode exec [options] [command] [prompt]
+
+Run one prompt without starting the TUI
+
+Arguments:
+  prompt                              task to execute
+
+Options:
+  --input <source>                    read explicit input; only "-" is
+                                      supported
+  --input-format <format>             input format: text or json (default:
+                                      "text")
+  --cwd <path>                        workspace directory
+  --file <path>                       attach a file (repeatable) (default: [])
+  --model <provider/model>            override the model for this Run only
+  --effort <level>                    override the reasoning effort for this
+                                      Run only
+  --prompt-mode <mode>                Prompt mode: tui, coding, or work
+                                      (choices: "tui", "coding", "work",
+                                      default: "tui")
+  --session <id>                      run in an existing active Session
+  --continue                          continue the latest active Session in
+                                      --cwd
+  --config <path>                     use an explicit Runtime config file for
+                                      this process
+  --permission <policy>               permission policy: smart, full, or off
+                                      (ask requires TUI/ACP) (default: "smart")
+  --timeout <duration>                Run timeout, for example 30s or 2m
+  --max-steps <count>                 maximum assistant steps
+  --output-format <format>            output format: text, json, or stream-json
+  --diagnostics-dir <path>            save bounded execution diagnostics to a
+                                      fresh directory
+  --output-schema <schema>            JSON Schema file or inline object for the
+                                      final answer
+  -o, --output-last-message <path>    write the final agent message to a file
+  --system-prompt <text>              replace the main Agent identity prompt
+                                      for this process
+  --system-prompt-file <path>         read the replacement main Agent identity
+                                      prompt from a file
+  --append-system-prompt <text>       append text after the main Agent identity
+                                      prompt for this process
+  --append-system-prompt-file <path>  read the appended main Agent prompt text
+                                      from a file
+  -h, --help                          display help for command
+
+Commands:
+  review [options]                    Review staged, unstaged, and untracked
+                                      local changes

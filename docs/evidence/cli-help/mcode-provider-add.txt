@@ -1,0 +1,17 @@
+Usage: mcode provider add [options]
+
+Add a custom provider
+
+Options:
+  --name <name>             provider display name
+  --base-url <url>          provider API base URL
+  --api-format <format>     anthropic-messages, openai-completions,
+                            openai-responses (default: "anthropic-messages")
+  --model <id>              model ID (repeatable) (default: [])
+  --api-key-env <name>      environment variable containing the API key
+  --context-limit <tokens>  context limit for every listed model
+  --output-limit <tokens>   output limit for every listed model
+  --support-image           declare image input support for every listed model
+  --use                     test the first model, then save and select it as
+                            the default
+  -h, --help                display help for command

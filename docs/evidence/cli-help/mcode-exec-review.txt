@@ -1,0 +1,26 @@
+Usage: mcode exec review [options]
+
+Review staged, unstaged, and untracked local changes
+
+Options:
+  --cwd <path>                        workspace directory
+  --model <provider/model>            override the model for this Run only
+  --effort <level>                    override the reasoning effort for this
+                                      Run only
+  --config <path>                     use an explicit Runtime config file for
+                                      this process
+  --permission <policy>               permission policy: smart, full, or off
+                                      (ask requires TUI/ACP) (default: "smart")
+  --timeout <duration>                Run timeout, for example 30s or 2m
+  --max-steps <count>                 maximum assistant steps
+  --output-format <format>            output format: text, json, or stream-json
+  -o, --output-last-message <path>    write the final review result to a file
+  --system-prompt <text>              replace the main Agent identity prompt
+                                      for this process
+  --system-prompt-file <path>         read the replacement main Agent identity
+                                      prompt from a file
+  --append-system-prompt <text>       append text after the main Agent identity
+                                      prompt for this process
+  --append-system-prompt-file <path>  read the appended main Agent prompt text
+                                      from a file
+  -h, --help                          display help for command

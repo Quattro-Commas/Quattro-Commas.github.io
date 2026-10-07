@@ -1,0 +1,9 @@
+Usage: mcode init [options] [directory]
+
+Analyze the codebase and generate AGENTS.md with the Runtime init Skill
+
+Arguments:
+  directory   project directory (default: ".")
+
+Options:
+  -h, --help  display help for command

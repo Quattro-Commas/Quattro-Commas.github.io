@@ -1,0 +1,18 @@
+Usage: mcode acp [options] [command]
+
+Run MiniMax Code as an Agent Client Protocol server over stdio
+
+Options:
+  --system-prompt <text>              replace the main Agent identity prompt
+                                      for this process
+  --system-prompt-file <path>         read the replacement main Agent identity
+                                      prompt from a file
+  --append-system-prompt <text>       append text after the main Agent identity
+                                      prompt for this process
+  --append-system-prompt-file <path>  read the appended main Agent prompt text
+                                      from a file
+  -h, --help                          display help for command
+
+Commands:
+  login [options]                     Sign in to use MiniMax Code Agent
+                                      features

@@ -1,0 +1,41 @@
+Usage: mcode [options] [command] [prompt]
+
+Minimax Code — terminal coding agent
+
+Arguments:
+  prompt                              task to execute in the interactive TUI
+
+Options:
+  -V, --version                       output the version number
+  -m, --model <provider/model>        select the model for this Session only
+  --lane <lane>                       managed backend lane for test or staging
+                                      builds
+  --session [id]                      open a Session by id, or browse Sessions
+                                      when id is omitted
+  -c, --continue                      continue the latest Session in the
+                                      current workspace
+  --tui-mode <mode>                   TUI mode: regular (default) or fullscreen
+  --system-prompt <text>              replace the main Agent identity prompt
+                                      for this process
+  --system-prompt-file <path>         read the replacement main Agent identity
+                                      prompt from a file
+  --append-system-prompt <text>       append text after the main Agent identity
+                                      prompt for this process
+  --append-system-prompt-file <path>  read the appended main Agent prompt text
+                                      from a file
+  -h, --help                          display help for command
+
+Commands:
+  init [directory]                    Analyze the codebase and generate
+                                      AGENTS.md with the Runtime init Skill
+  exec [options] [prompt]             Run one prompt without starting the TUI
+  acp [options]                       Run MiniMax Code as an Agent Client
+                                      Protocol server over stdio
+  login [options]                     Sign in to use MiniMax Code Agent
+                                      features
+  logout [options]                    Sign out of the MiniMax account used by
+                                      this CLI
+  update                              Check for and install a Minimax Code
+                                      update
+  provider                            Manage model providers and API keys
+  plugin                              Manage MiniMax Code Plugins

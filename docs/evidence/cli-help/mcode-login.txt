@@ -1,0 +1,8 @@
+Usage: mcode login [options]
+
+Sign in to use MiniMax Code Agent features
+
+Options:
+  --region <region>  account region: cn or global
+  --no-browser       print the authorization URL without opening a browser
+  -h, --help         display help for command

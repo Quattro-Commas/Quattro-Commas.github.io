@@ -1,0 +1,7 @@
+Usage: mcode provider list [options]
+
+List configured providers
+
+Options:
+  --json      print a JSON document
+  -h, --help  display help for command

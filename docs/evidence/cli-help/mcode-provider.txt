@@ -1,0 +1,14 @@
+Usage: mcode provider [options] [command]
+
+Manage model providers and API keys
+
+Options:
+  -h, --help                      display help for command
+
+Commands:
+  list [options]                  List configured providers
+  add [options]                   Add a custom provider
+  remove [options] <provider-id>  Remove a custom provider
+  test [options] <provider-id>    Test a provider or one configured model
+  use <source>                    Choose the MiniMax credential source
+  set-minimax-key [options]       Save and use a MiniMax API key

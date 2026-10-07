@@ -1,0 +1,14 @@
+Usage: mcode plugin [options] [command]
+
+Manage MiniMax Code Plugins
+
+Options:
+  -h, --help                                display help for command
+
+Commands:
+  list [options]                            List installed or available Plugins
+  add [options] <plugin[@marketplace]>      Install a Plugin
+  remove [options] <plugin[@marketplace]>   Uninstall a Plugin
+  enable [options] <plugin[@marketplace]>   Enable a Plugin
+  disable [options] <plugin[@marketplace]>  Disable a Plugin
+  marketplace                               List or refresh MiniMax Code Plugin sources

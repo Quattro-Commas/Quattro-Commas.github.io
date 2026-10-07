@@ -1,0 +1,9 @@
+Usage: mcode provider use [options] <source>
+
+Choose the MiniMax credential source
+
+Arguments:
+  source      token-plan or api-key
+
+Options:
+  -h, --help  display help for command

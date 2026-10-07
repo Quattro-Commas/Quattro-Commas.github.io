@@ -1,0 +1,11 @@
+Usage: mcode provider test [options] <provider-id>
+
+Test a provider or one configured model
+
+Arguments:
+  provider-id   provider id
+
+Options:
+  --model <id>  test one model
+  --json        print a JSON document
+  -h, --help    display help for command

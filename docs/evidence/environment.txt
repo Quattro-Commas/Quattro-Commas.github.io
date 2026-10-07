@@ -1,0 +1,10 @@
+mcode_version=0.6.3
+mcode_path=/root/.minimax-code/bin/mcode
+node_system=v22.22.1
+node_bundled=v24.19.0
+npm_system=10.9.4
+current_release=0.6.3
+origin_main=60a80be7d914030f279b38e17fd10fafa63142b9
+mem_available_mib=647
+mem_total_mib=3653
+captured_utc=2026-10-07T12:23:13Z
