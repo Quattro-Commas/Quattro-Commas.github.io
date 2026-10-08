@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quattro Commas — Independent AI Engineering Studio</title>
-<meta name="description" content="Quattro Commas: an independent AI engineering studio. Ideas, code, culture, freedom. Hack, build, jazz, repeat.">
+<title>Quattro Commas — A Verification-Gated AI Studio</title>
+<meta name="description" content="Quattro Commas: a verification-gated AI studio. Applied ML and agent tools that carry their own evidence. Ideas, code, culture, freedom.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>♛</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -398,12 +398,18 @@ footer .sig {
   <p class="work-note">
     This studio is the index. The code is in the repositories above, built and maintained by the same
     one person — nothing here is a mirror or a fork.<br>
-    One builder. No production deployments, no customers, no funding. Every project sits at
+    Built by one person means you know who answers for a broken gate — not that the work is small.<br>
+    No customers, no funding, no production deployments. Every project sits at
     <strong>0 stars and 0 forks</strong>.<br>
-    Checked <strong>2026-10-07</strong>: <strong>four of the five</strong> public projects have a failing
-    check on <code>main</code> right now — <code>harness</code>, <code>terminal221b</code>,
-    <code>mcp-regression-lab</code> and <code>repotruth</code>. <code>elohim</code> is green on its latest
-    run. They are listed because hiding that would be the opposite of the point.
+    Re-verified <strong>2026-10-08</strong>: <strong>no project is failing a test.</strong>
+    <code>elohim</code> is green on its latest run, five consecutive successes. That is <em>not</em> the same
+    as all green: <code>harness</code> last executed CI at commit <code>d11de009</code> and failed on
+    <code>uv sync --frozen</code>, and its probable fix has never been validated, so it is
+    <em>probably green and unverified</em>. <code>terminal221b</code> and <code>repotruth</code> have no
+    executed run since GitHub began refusing to start their jobs, so they are <code>UNKNOWN</code>.<br>
+    An earlier version of this page published a count of red checks across the portfolio. That was false:
+    those runs executed zero steps and were never assigned a runner, which makes them a judgement about a
+    GitHub invoice rather than about code.
   </p>
 
   <div class="contact">
@@ -432,19 +438,21 @@ footer .sig {
 </section>
 
 <footer>
-  <span class="sig">Independent AI Engineering Studio</span>
-  hack · build · jazz · repeat<br><br>
+  <span class="sig">A Verification-Gated AI Studio</span>
+  a guard that does not hold must fail the run<br><br>
   <a href="https://github.com/Quattro-Commas">github.com/Quattro-Commas</a> ·
   built by <a href="https://github.com/BoozeLee">Kiliaan Vanvoorden</a> in Riemst, Belgium
 </footer>
 
 <script>
-// Rotating hero tagline
+// Rotating hero tagline. Kept in step with the canonical profile copy at
+// orgmind/docs/profile/README.md — organism/org_drift.py::surfaces_agree compares
+// the brand line across surfaces, so a phrase changed here and not there is drift.
 const phrases = [
   'ideas, code, culture, freedom',
-  'hack, build, jazz, repeat',
-  'good code, better people',
-  'open source & brighter futures'
+  'a guard that does not hold must fail the run',
+  'every number re-derives from a repository',
+  'verification-gated, not dashboard-green'
 ];
 const typedEl = document.getElementById('typed');
 let pi = 0, ci = 0, deleting = false;
