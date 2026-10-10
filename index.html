@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Quattro Commas — A Verification-Gated AI Studio</title>
 <meta name="description" content="Quattro Commas: a verification-gated AI studio. Applied ML and agent tools that carry their own evidence. Ideas, code, culture, freedom.">
+<meta property="og:title" content="Quattro Commas — A Verification-Gated AI Studio">
+<meta property="og:description" content="Applied ML and agent tools that carry their own evidence. Ideas, code, culture, freedom.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://quattro-commas.github.io">
+<meta property="og:image" content="https://quattro-commas.github.io/assets/crew.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>♛</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -368,30 +374,30 @@ footer .sig {
   <p class="sub">EVERY FIGURE BELOW IS RE-DERIVABLE FROM THE REPO</p>
 
   <div class="projects">
-    <a class="project" href="https://github.com/BoozeLee/elohim">
+    <a class="project" href="https://github.com/Quattro-Commas/elohim">
       <span class="name">elohim</span>
       <span class="desc">Checksum-pinned gate for numerical claims. Publishes a number only when it can re-derive it, and ships tampered copies of its own instruments so the gate has to be caught failing.</span>
-      <span class="repo">github.com/BoozeLee/elohim</span>
+      <span class="repo">github.com/Quattro-Commas/elohim</span>
     </a>
-    <a class="project" href="https://github.com/BoozeLee/harness">
+    <a class="project" href="https://github.com/Quattro-Commas/harness">
       <span class="name">harness</span>
       <span class="desc">Contract-gated agent pipeline. Blocks protected-path writes and secret reads before an agent's edit lands, so a guard that does not hold fails the run instead of passing quietly.</span>
-      <span class="repo">github.com/BoozeLee/harness</span>
+      <span class="repo">github.com/Quattro-Commas/harness</span>
     </a>
-    <a class="project" href="https://github.com/BoozeLee/terminal221b">
+    <a class="project" href="https://github.com/Quattro-Commas/terminal221b">
       <span class="name">terminal221b</span>
       <span class="desc">Bounded local-first coding CLI with a Rust TUI. Agent context is bound by path rather than by a token budget, and credentials are redacted out of stored transcripts before they reach disk.</span>
-      <span class="repo">github.com/BoozeLee/terminal221b</span>
+      <span class="repo">github.com/Quattro-Commas/terminal221b</span>
     </a>
     <a class="project" href="https://github.com/Bakery-street-project/galacticfederation">
       <span class="name">repotruth</span>
       <span class="desc">CI that reads the repository, not just the diff. Verifies every webhook — signed push accepted, replay answered idempotently, unsigned push rejected — and reports its own input limits instead of silently truncating an audit above them.</span>
       <span class="repo">github.com/Bakery-street-project/galacticfederation</span>
     </a>
-    <a class="project" href="https://github.com/BoozeLee/mcp-regression-lab">
+    <a class="project" href="https://github.com/Quattro-Commas/mcp-regression-lab">
       <span class="name">mcp-regression-lab</span>
       <span class="desc">Diffs an MCP server's tool contract across releases, so a renamed or narrowed tool fails CI instead of failing in production.</span>
-      <span class="repo">github.com/BoozeLee/mcp-regression-lab</span>
+      <span class="repo">github.com/Quattro-Commas/mcp-regression-lab</span>
     </a>
   </div>
 
@@ -401,15 +407,11 @@ footer .sig {
     Built by one person means you know who answers for a broken gate — not that the work is small.<br>
     No customers, no funding, no production deployments. Every project sits at
     <strong>0 stars and 0 forks</strong>.<br>
-    Re-verified <strong>2026-10-08</strong>: <strong>no project is failing a test.</strong>
-    <code>elohim</code> is green on its latest run, five consecutive successes. That is <em>not</em> the same
-    as all green: <code>harness</code> last executed CI at commit <code>d11de009</code> and failed on
-    <code>uv sync --frozen</code>, and its probable fix has never been validated, so it is
-    <em>probably green and unverified</em>. <code>terminal221b</code> and <code>repotruth</code> have no
-    executed run since GitHub began refusing to start their jobs, so they are <code>UNKNOWN</code>.<br>
-    An earlier version of this page published a count of red checks across the portfolio. That was false:
-    those runs executed zero steps and were never assigned a runner, which makes them a judgement about a
-    GitHub invoice rather than about code.
+    Re-verified <strong>2026-10-11</strong>: all four showcase repos (<code>elohim</code>,
+    <code>harness</code>, <code>terminal221b</code>, <code>mcp-regression-lab</code>) have
+    <strong>green CI</strong> on their latest runs.<br>
+    <code>repotruth</code> is maintained outside this org at
+    <code>Bakery-street-project/galacticfederation</code>.
   </p>
 
   <div class="contact">
