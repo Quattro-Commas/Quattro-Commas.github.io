@@ -22,11 +22,20 @@ Negative test (prove the checker can fail):
 bash scripts/verify.sh --negative   # expects: one deliberately broken check FAILs, exit 1
 ```
 
+## CI (TASK-003)
+`.github/workflows/verify.yml` runs on every PR to `main`, every push to
+`main`, and manual dispatch: job 1 runs the positive suite; job 2 runs
+`--negative` and requires exit 1 (exit 2 = detector broken = red).
+No dependencies, no secrets, `contents: read` only. A cold start under load
+is handled: the script waits up to ~10s for the local server and fails with
+an explicit "never came up" message instead of a cascade of false FAILs.
+
 ## Publish (needs explicit user go — publishes live immediately)
+Repo rules require changes to `main` to land via pull request:
 ```bash
-git add <files> && git commit   # attribution per repo convention
-git push origin agent/first-usable-release   # optional review step
-git switch main && git merge --ff-only agent/first-usable-release && git push origin main
+git add <files> && git commit
+git push origin <branch>
+gh pr create --base main --head <branch> ... && gh pr merge <n> --merge
 ```
 GitHub Pages serves `main` at https://quattro-commas.github.io within ~1 min.
 

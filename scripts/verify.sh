@@ -34,13 +34,21 @@ PY
 SERVER_PID=$!
 trap 'kill "$SERVER_PID" 2>/dev/null; rm -f "$ROOT/.verify-port"' EXIT
 
-# Wait until the server answers.
-for _ in 1 2 3 4 5 6 7 8 9 10; do
+# Wait until the server answers (CI runners can be slow to bind; up to ~10s).
+SERVER_UP=0
+for _ in $(seq 1 40); do
   if python3 -c "import urllib.request,sys; urllib.request.urlopen('http://127.0.0.1:${PORT}/', timeout=1)" 2>/dev/null; then
+    SERVER_UP=1
     break
   fi
-  sleep 0.3
+  sleep 0.25
 done
+if [ "$SERVER_UP" -eq 0 ]; then
+  echo "FAIL  local server on port ${PORT} never came up"
+  echo "== summary =="
+  echo "CHECKS FAILED"
+  exit 1
+fi
 
 check_url() { # 0 = reachable 200, 1 = not
   python3 - "$1" <<'PY'
