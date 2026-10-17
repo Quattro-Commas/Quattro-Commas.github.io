@@ -23,9 +23,15 @@ One task in progress at a time. Acceptance criteria are demonstrable, not vibes.
         incl. run immediately after negative — SO_REUSEADDR fix verified)
   - [x] documented in docs/RUNBOOK.md and AGENTS.md
 
-## TASK-003 — CI link check (proposed)
-- GitHub Actions workflow running scripts/verify.sh (offline mode) on every
-  push to main. Only after TASK-001 ships.
+## TASK-003 — CI verify gate (in progress — landing via PR)
+- `.github/workflows/verify.yml`: on PR to main, push to main, and manual
+  dispatch; runs `scripts/verify.sh` plus the `--negative` detector proof
+  (exit 1 required; exit 2 = red). Zero dependencies, zero secrets,
+  `contents: read`, 5-minute timeout.
+- Acceptance:
+  - [ ] workflow runs green on its own PR (pull_request trigger uses the
+        merge ref, so the new workflow runs on the PR that adds it)
+  - [ ] merged to main after green
 
 ## TASK-004 — Offer-page casus section (proposed, blocked on first client)
 - Placeholder stays empty until a real, client-approved casus exists.
