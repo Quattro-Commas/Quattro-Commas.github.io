@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI-automatie voor KMO's — bewijsbaar werkend, vast geprijsd | Quattro Commas</title>
+<meta name="description" content="Freelance AI-automatie voor Belgische KMO's: handmatig overtypwerk, rapporten en e-mailopvolging geautomatiseerd, met bewijs dat het blijft werken. Vaste prijzen, Peppol-conforme facturatie.">
+<meta property="og:title" content="AI-automatie voor KMO's — Quattro Commas">
+<meta property="og:description" content="Automaties die bewijsbaar werken. Vast geprijsd, geen lock-in, Peppol-conforme facturatie.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://quattro-commas.github.io/aanbod.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>♛</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=JetBrains+Mono:ital,wght@0,400;0,700;1,400&family=Sora:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal: #3ee6b0;
+  --amber: #ffb347;
+  --magenta: #ff5da2;
+  --cream: #f5efe0;
+  --ink: #0d0a14;
+  --ink-2: #161022;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--ink);
+  color: var(--cream);
+  font-family: 'Sora', sans-serif;
+  overflow-x: hidden;
+}
+a { color: var(--teal); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; border-radius: 4px; }
+
+.topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  max-width: 1100px; margin: 0 auto;
+  padding: 1.4rem 1.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+}
+.topbar .brand {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.15rem; color: var(--cream); text-decoration: none;
+}
+.topbar .brand em { color: var(--amber); font-style: normal; }
+.topbar .back { color: rgba(245,239,224,0.6); text-decoration: none; border-bottom: 1px dashed rgba(62,230,176,0.4); }
+.topbar .back:hover { color: var(--teal); }
+
+.hero {
+  max-width: 900px; margin: 0 auto;
+  padding: 4rem 1.5rem 3.5rem;
+  text-align: center;
+}
+.hero h1 {
+  font-family: 'Permanent Marker', cursive;
+  font-size: clamp(2.2rem, 6.5vw, 4.2rem);
+  line-height: 1.1;
+  color: var(--cream);
+}
+.hero h1 em { color: var(--teal); font-style: normal; text-shadow: 0 0 40px rgba(62,230,176,0.35); }
+.hero .lede {
+  margin: 1.4rem auto 0;
+  max-width: 620px;
+  font-weight: 300;
+  font-size: clamp(1rem, 2.4vw, 1.15rem);
+  line-height: 1.7;
+  color: rgba(245,239,224,0.85);
+}
+.hero .lede strong { color: var(--amber); font-weight: 600; }
+.cta {
+  display: inline-block;
+  margin-top: 2rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  color: var(--ink);
+  background: var(--teal);
+  border: none; border-radius: 999px;
+  padding: 0.8rem 1.8rem;
+  text-decoration: none;
+  transition: transform 0.3s cubic-bezier(.2,.8,.2,1), box-shadow 0.3s;
+}
+.cta:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(62,230,176,0.25); }
+.cta.alt { background: transparent; color: var(--teal); border: 1px solid rgba(62,230,176,0.5); }
+
+section.block { max-width: 1100px; margin: 0 auto; padding: 3.5rem 1.5rem; }
+section.block > h2 {
+  font-family: 'Permanent Marker', cursive;
+  font-size: clamp(1.7rem, 4.5vw, 2.6rem);
+  margin-bottom: 2.2rem;
+  color: var(--cream);
+}
+section.block > h2 em { color: var(--amber); font-style: normal; }
+
+.signals { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; }
+.signal {
+  border: 1px solid rgba(245,239,224,0.12);
+  border-left: 3px solid var(--magenta);
+  border-radius: 12px;
+  padding: 1.2rem 1.3rem;
+  font-weight: 300;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: rgba(245,239,224,0.85);
+}
+.signal .q { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--magenta); display: block; margin-bottom: 0.4rem; }
+
+.packages { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem; }
+.pkg {
+  border: 1px solid rgba(245,239,224,0.12);
+  border-radius: 14px;
+  padding: 1.7rem 1.5rem;
+  background: linear-gradient(160deg, rgba(255,255,255,0.045), rgba(255,255,255,0.01));
+  transition: transform 0.35s cubic-bezier(.2,.8,.2,1), border-color 0.35s, box-shadow 0.35s;
+  display: flex; flex-direction: column;
+}
+.pkg:hover { transform: translateY(-6px) rotate(-0.5deg); border-color: var(--teal); box-shadow: 0 18px 40px rgba(0,0,0,0.5), 0 0 30px rgba(62,230,176,0.12); }
+.pkg.featured { border-color: rgba(62,230,176,0.55); }
+.pkg h3 {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.35rem; font-weight: 400;
+  color: var(--teal); margin-bottom: 0.3rem;
+}
+.pkg:nth-child(even) h3 { color: var(--amber); }
+.pkg .price {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.95rem; color: var(--cream);
+  margin-bottom: 0.9rem;
+}
+.pkg .price span { color: rgba(245,239,224,0.5); font-size: 0.78rem; }
+.pkg ul { list-style: none; flex: 1; }
+.pkg li {
+  font-size: 0.9rem; font-weight: 300;
+  color: rgba(245,239,224,0.82);
+  line-height: 1.6;
+  padding-left: 1.2rem;
+  position: relative;
+  margin-bottom: 0.45rem;
+}
+.pkg li::before { content: '→'; position: absolute; left: 0; color: var(--teal); }
+.pkg:nth-child(even) li::before { color: var(--amber); }
+
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; counter-reset: step; }
+.step {
+  border: 1px solid rgba(245,239,224,0.12);
+  border-radius: 12px;
+  padding: 1.3rem 1.4rem;
+}
+.step .n {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem; color: var(--magenta);
+  display: block; margin-bottom: 0.5rem;
+}
+.step h3 {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.15rem; font-weight: 400;
+  color: var(--cream); margin-bottom: 0.45rem;
+}
+.step p { font-size: 0.88rem; font-weight: 300; color: rgba(245,239,224,0.78); line-height: 1.65; }
+
+.proof {
+  border: 1px solid rgba(62,230,176,0.35);
+  border-radius: 14px;
+  padding: 1.8rem 1.6rem;
+  background: rgba(62,230,176,0.04);
+  max-width: 780px;
+}
+.proof h3 {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.3rem; font-weight: 400;
+  color: var(--teal); margin-bottom: 0.7rem;
+}
+.proof p { font-size: 0.92rem; font-weight: 300; line-height: 1.7; color: rgba(245,239,224,0.85); margin-bottom: 0.7rem; }
+.proof p:last-child { margin-bottom: 0; }
+.proof code { font-family: 'JetBrains Mono', monospace; font-size: 0.85em; color: var(--amber); }
+
+.honest {
+  border: 1px dashed rgba(245,239,224,0.25);
+  border-radius: 14px;
+  padding: 1.6rem 1.5rem;
+  font-size: 0.88rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: rgba(245,239,224,0.7);
+  max-width: 780px;
+}
+.honest strong { color: var(--cream); font-weight: 600; }
+
+.terms { max-width: 780px; }
+.terms ul { list-style: none; }
+.terms li {
+  font-size: 0.9rem; font-weight: 300;
+  color: rgba(245,239,224,0.8);
+  line-height: 1.7;
+  padding-left: 1.4rem; position: relative;
+  margin-bottom: 0.5rem;
+}
+.terms li::before { content: '✓'; position: absolute; left: 0; color: var(--teal); }
+
+.contact { text-align: center; padding-bottom: 5rem; }
+.contact .mail {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(0.95rem, 2.5vw, 1.2rem);
+  color: var(--amber);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,179,71,0.4);
+}
+.contact .mail:hover { border-bottom-color: var(--amber); }
+.contact .note { margin-top: 1rem; font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: rgba(245,239,224,0.5); line-height: 1.8; }
+
+footer {
+  border-top: 1px solid rgba(245,239,224,0.1);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  color: rgba(245,239,224,0.55);
+}
+footer a { color: var(--teal); text-decoration: none; border-bottom: 1px dashed rgba(62,230,176,0.4); }
+footer a:hover { color: var(--amber); border-color: var(--amber); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="brand" href="/">Quattro <em>Commas</em></a>
+  <a class="back" href="/">← hoofdpagina</a>
+</div>
+
+<header class="hero">
+  <h1>AI-automatie voor KMO's.<br><em>Bewijsbaar werkend.</em> Vast geprijsd.</h1>
+  <p class="lede">
+    Uren per week overtypen tussen Excel en je pakket, rapporten met de hand maken,
+    e-mails manueel verwerken — ik bouw de automatie die dat overneemt.
+    En in plaats van alleen een demo lever ik <strong>bewijs mee dat het blijft werken</strong>:
+    invoer/uitvoer-voorbeelden, logging en een alarm dat afgaat als iets afwijkt.
+  </p>
+  <a class="cta" href="mailto:bakerstreetbandit@zohomail.eu?subject=Automatie-scan%20aanvragen">Vraag een gratis 20-minuten-scan</a>
+</header>
+
+<section class="block" aria-labelledby="herken">
+  <h2 id="herken">Herkent u <em>dit?</em></h2>
+  <div class="signals">
+    <div class="signal"><span class="q">signaal 01</span>Medewerkers kopiëren wekelijks cijfers uit het ene systeem naar het andere, en het gaat af en toe mis.</div>
+    <div class="signal"><span class="q">signaal 02</span>Maand- of klachtrapporten worden met de hand samengesteld en kosten ieder keer een halve dag.</div>
+    <div class="signal"><span class="q">signaal 03</span>Offertes, facturen of aanvragen komen binnen als e-mail en worden manueel overgetypt in een ander programma.</div>
+    <div class="signal"><span class="q">signaal 04</span>Er ligt data die u eigenlijk zou willen gebruiken, maar niemand heeft er tijd voor om er iets mee te doen.</div>
+  </div>
+</section>
+
+<section class="block" aria-labelledby="pakketten">
+  <h2 id="pakketten">Pakketten, <em>vast geprijsd</em></h2>
+  <div class="packages">
+    <div class="pkg">
+      <h3>Automatie-audit</h3>
+      <p class="price">€350 <span>vast · 2 uur bij u of online</span></p>
+      <ul>
+        <li>Inventarisatie van handmatige processen</li>
+        <li>Rapport: wat levert automatisering op, en wat niet</li>
+        <li>Schatting van bespaarde uren per kandidaat</li>
+        <li>Biedt u niets op? Dan vervalt de rekening</li>
+      </ul>
+    </div>
+    <div class="pkg featured">
+      <h3>Pilot-integratie</h3>
+      <p class="price">vanaf €1.200 <span>vast · 1–2 weken</span></p>
+      <ul>
+        <li>Eén concrete workflow volledig geautomatiseerd</li>
+        <li>Vaste prijs vooraf, geen uurfactuur verrassingen</li>
+        <li>Logging en alarm bij afwijkende invoer inbegrepen</li>
+        <li>Overdracht: de code is van u, met uitleg</li>
+      </ul>
+    </div>
+    <div class="pkg">
+      <h3>Doorbouw &amp; onderhoud</h3>
+      <p class="price">€75–95 <span>per uur · of per maand in overleg</span></p>
+      <ul>
+        <li>Meer workflows, dezelfde aanpak</li>
+        <li>Wijzigingen als uw pakket of format verandert</li>
+        <li>Geen contract-dwang: per interventie of maandelijks</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="block" aria-labelledby="aanpak">
+  <h2 id="aanpak">Hoe ik <em>werk</em></h2>
+  <div class="steps">
+    <div class="step"><span class="n">stap 1</span><h3>Scan</h3><p>Gratis 20 minuten: we lopen uw processen na en ik zeg eerlijk of automatisering hier iets aan heeft.</p></div>
+    <div class="step"><span class="n">stap 2</span><h3>Voorstel</h3><p>Na de audit krijgt u een voorstel met vaste prijs, scope en einddatum. Geen open einde.</p></div>
+    <div class="step"><span class="n">stap 3</span><h3>Bouw met bewijs</h3><p>Wekelijkse demo op uw echte data, met voorbeeldinvoer die aantoont dat de uitvoer klopt.</p></div>
+    <div class="step"><span class="n">stap 4</span><h3>Overdracht</h3><p>U krijgt de code, de rechten en een korte uitleg. Geen lock-in, geen abonnement om het draaiend te houden.</p></div>
+  </div>
+</section>
+
+<section class="block" aria-labelledby="bewijs">
+  <h2 id="bewijs">Waarom bij mij een <em>guard</em> inbegrepen is</h2>
+  <div class="proof">
+    <h3>Een demo overtuigt. Een bewijs houdt stand.</h3>
+    <p>De meeste automatiseringen worden opgeleverd met een demo die werkte op dag één. Wat er daarna gebeurt — een gewijzigd bestandsformat, een lege rij, een import die uitblijft — merkt u pas als het al misgelopen is.</p>
+    <p>Daarom levert elke automatie hier standaard <code>logging</code> en een <code>guard</code> mee: een controle die luid faalt wanneer de invoer of uitvoer afwijkt van wat afgesproken was. U hoort het van het systeem, niet van een klant.</p>
+    <p>Deze aanpak is niet een belofte die ik hier neem; ze is de kern van de openbare projecten op de <a href="/">hoofdpagina</a> — evaluatiegates en CI die bewust falen wanneer een systeem niet klopt. Zelfde discipline, nu op uw processen.</p>
+  </div>
+</section>
+
+<section class="block" aria-labelledby="eerlijk">
+  <h2 id="eerlijk">Eerlijk <em>verder</em></h2>
+  <div class="honest">
+    <strong>Deze praktijk is net gestart, en dat leest u hier opnieuw als een feit.</strong> Er staat geen klantenrij op deze pagina omdat die er nog niet is. De openbare projecten op de hoofdpagina tonen wat ik kan; de eerste opdrachten bepalen de casussen die hier komen.
+    Voor de eerste klanten betekent dit: scherpe intro-prijzen, directe lijn met de enige persoon die bouwt, en in ruil een casus die ik openbaar mag beschrijven.
+  </div>
+</section>
+
+<section class="block terms" aria-labelledby="randvoorwaarden">
+  <h2 id="randvoorwaarden">Randvoorwaarden</h2>
+  <ul>
+    <li>Vaste prijs vooraf op elk traject; alleen het uurtarief beweegt met scope.</li>
+    <li>Code en databeveiliging blijven bij u; NDA is standaard mogelijk.</li>
+    <li>Waar het kan bouw ik op open bronnen en tools die u zelf houdt — geen platform-borging.</li>
+    <li>Ik werk als zelfstandige in bijberoep en factureer met Peppol-conforme e-facturatie (verplicht voor Belgisch B2B sinds 2026).</li>
+    <li>Werktaal: Nederlands of Engels.</li>
+  </ul>
+</section>
+
+<section class="block contact" aria-labelledby="contact">
+  <h2 id="contact">Klaar voor de <em>eerste scan?</em></h2>
+  <p><a class="mail" href="mailto:bakerstreetbandit@zohomail.eu?subject=Automatie-scan%20aanvragen&amp;body=Beschrijf%20in%203%20regels%3A%20welk%20proces%2C%20hoevaak%2C%20wie%20doet%20het%20nu.">bakerstreetbandit@zohomail.eu</a></p>
+  <p class="note">mail met onderwerp "Automatie-scan" · antwoord binnen 2 werkdagen<br>proof of work: <a href="/" style="color:inherit">quattro-commas.github.io</a></p>
+  <a class="cta" href="mailto:bakerstreetbandit@zohomail.eu?subject=Automatie-scan%20aanvragen">Gratis 20-minuten-scan aanvragen</a>
+</section>
+
+<footer>
+  <a href="/">quattro-commas.github.io</a> ·
+  <a href="https://github.com/Quattro-Commas">github.com/Quattro-Commas</a> ·
+  gebouwd door <a href="https://github.com/BoozeLee">Kiliaan Vanvoorden</a> in Riemst, België
+</footer>
+
+</body>
+</html>
